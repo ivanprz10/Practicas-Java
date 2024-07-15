@@ -8,7 +8,7 @@ public class Serie_Fibonacci {
        
         int primerTermino=0,segundoTermino=1,siguienteTermino;//Declaramos las variables que utilizaremos para remplazar
                                                               //valores en esta serie 
-        for (int i = 0; i <=20; i++) {//inicializamos nuestro ciclo for indicando que llegara hasta el valor #20
+        for (int i = 0; i <=100; i++) {//inicializamos nuestro ciclo for indicando que llegara hasta el valor #20
             
             System.out.print("("+primerTermino+")");//la serie nos indica que imprimira el primer termino empezando con 0
             
