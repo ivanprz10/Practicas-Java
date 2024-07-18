@@ -4,6 +4,8 @@
 
 package com.mycompany.tuto_arrays_unidimensionales;
 
+import java.util.Scanner;
+
 /**
  *
  * @author ivanp
@@ -11,6 +13,7 @@ package com.mycompany.tuto_arrays_unidimensionales;
 public class Tuto_Arrays_unidimensionales {
 
     public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
 
 
 //ARRAY´S DECLARADOS CON TIPOS DE DATOS, VEMOS SU CORRECTA SINTAXIS
@@ -63,7 +66,38 @@ public class Tuto_Arrays_unidimensionales {
         for (int i = 0; i < array4Int.length; i++) {//usando un for para que este llegue a la cantidad de los elementos en el array
             System.out.println(i);//se imprime el numero de veces que contenga el arreglo
         }
+        
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------
+       //IMPRIMIR TODAS LAS POSICIONES DEL ARREGLO USANDO FOR Y FOR EACH
+       //for
+       int [] arr1 = {1,2,5,3,2};//nuestro arreglo principal
+       
+        for (int i = 0; i < arr1.length; i++) {//declarando for, con variable iteradora y que llegue a la medida de nuestro arreglo 
+            System.out.println(arr1[i]);   //imprimira nuestro array en la posicion i
+        }
+        
+        //for each
+        for (int i : arr1) {// para cada (for each) elemento int (llamado i) en el arreglo arr1, imprime el valor de i.
 
+            System.out.print("("+i+") ");
+        }
+        
+       //---------------------------------------------------------------------------------------------------------------------------------------------------------
+       //INTRODUCIR VALORES POR TECLADO A UN ARREGLO CON FOR
+       int tamaño;
+        System.out.print("ingrese la cantidad de elementos de su arreglo: ");
+        tamaño=sc.nextInt();
+        
+        int[]arr = new int[tamaño];
+        
+        for (int i = 0; i < tamaño; i++) {
+            System.out.print("ingrese el valor de la posicion ["+i+"]:");
+            arr[i] = sc.nextInt();
+        }
+        
+        for (int i = 0; i < arr.length ; i++) {
+            System.out.print(arr[i]+" ");
+        }
 
     }
 }
