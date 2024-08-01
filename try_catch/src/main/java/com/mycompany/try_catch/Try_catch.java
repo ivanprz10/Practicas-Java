@@ -12,7 +12,7 @@ public class Try_catch {
     public static void main(String[] args) {
 
         try {
-            // Código que puede lanzar una excepción
+            
             int resultado = 10 / 0; // Esto lanzará ArithmeticException
             System.out.println("El resultado es " + resultado);
         } 
