@@ -72,11 +72,12 @@ class Quicksort {
         System.out.print("Ingrese la medida de su arreglo: ");
         int p = sc.nextInt();
 
-        // Declara un arreglo de tamaño 10 (podría ser p en lugar de 10 para generalizar)
-        int[] arr = new int[10];
+        // Declara un arreglo de tamaño p 
+        int[] arr = new int[p];
 
         // Lee los elementos del arreglo desde la entrada
         for(int i = 0; i < p; i++) {
+            System.out.print("ingrese posicion ["+(i+1)+"]: ");
             arr[i] = sc.nextInt();  
         }
 
