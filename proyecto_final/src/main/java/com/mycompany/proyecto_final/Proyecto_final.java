@@ -10,8 +10,8 @@ public class Proyecto_final {
     public static void main(String[] args) {
 
 
-        Conexion obj = new Conexion();
-        obj.Conectar();
+        Interfaz objinterfaz = new Interfaz();
+        objinterfaz.setVisible(true);
 
 
     }
