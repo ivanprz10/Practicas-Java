@@ -271,31 +271,88 @@ public class Interfaz extends javax.swing.JFrame {
         }
         catch (SQLException | NumberFormatException e) {
             
-            JOptionPane.showInternalMessageDialog(null, e.toString());
+            JOptionPane.showInternalMessageDialog(null,"ERROR EN EL GUARDADO :(\n"+ e.toString());
             
         }
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
+
+
+        String Nombre= txtNombre.getText();
+        String Domicilio = txtDomicilio.getText();
+        int Telefono = Integer.parseInt(intTelefono.getText());
+        String Email = txtEmail.getText();
+        String Fecha = dateFecha.getText();
+        String Genero = txtGenero.getText();
+        int Clave = Integer.parseInt(intNoEmp.getText());
+        
+        Conexion objModificar = new Conexion();
+        
+        try {
+            
+            objModificar.Conectar();
+            PreparedStatement bd;
+            bd=objModificar.conectar.prepareStatement("UPDATE EMPLEADOS SET NOMBRE=?, DOMICILIO=?, TELEFONO=?,FECHA_NACIMIENTO=?,EMAIL=?,GENERO=? WHERE CLAVE = ?");
+            bd.setString(1,Nombre);
+            bd.setString(2,Domicilio);
+            bd.setInt(3,Telefono);
+            bd.setString(4,Fecha);
+            bd.setString(5,Email);
+            bd.setString(6,Genero);
+            bd.setInt(7,Clave);
+            bd.executeUpdate();
+            
+           JOptionPane.showInternalMessageDialog(null,"REGISTRO ACTUALIZADO CON EXITO :)");
+            
+        } catch (SQLException e) {
+            
+            JOptionPane.showInternalMessageDialog(null,"ERROR EN EL GUARDADO :(\n"+ e.toString());
+
+        }
+
+
     }//GEN-LAST:event_btnModificarActionPerformed
 
+    private void Limpiar(){
+        
+        intNoEmp.setText("");
+        txtNombre.setText("");
+        txtDomicilio.setText("");
+        intTelefono.setText("");
+        txtEmail.setText("");
+        dateFecha.setText("");
+        txtGenero.setText("");
+        
+    }
+    
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+
+
+        int Clave = Integer.parseInt(intNoEmp.getText());
+        
+        try {
+            
+            Conexion objEliminar=new Conexion();
+            objEliminar.Conectar();
+            PreparedStatement bd;
+            bd=objEliminar.conectar.prepareStatement("DELETE FROM EMPLEADOS WHERE CLAVE=?");
+            bd.setInt(1, Clave);
+            bd.executeUpdate();
+            JOptionPane.showMessageDialog(null, "EL REGISTRO SE HA ELIMINADO CORRECTAMENTE :)");
+            Limpiar();
+            
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR EN LA ELIMINACION :(\n"+e.toString());
+
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
-    
-    
-    
                 /*BOTON LIMPIAR MANDAREMOS UN setText VACIO*/
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-           intNoEmp.setText("");
-           txtNombre.setText("");
-           txtDomicilio.setText("");
-           intTelefono.setText("");
-           txtEmail.setText("");
-           dateFecha.setText("");
-           txtGenero.setText("");
+           Limpiar();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     /**
